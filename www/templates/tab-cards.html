@@ -1,16 +1,11 @@
 <ion-view view-title="领取卡券">
   <ion-content>
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="card in cards" type="item-text-wrap" href="#/carddetail/1">
-        <img src="img/doubletuan.png" />
+      <ion-item style="border-radius: 5px; border-color: #e42012" class="item-remove-animate item-avatar item-icon-right" ng-repeat="card in cards" type="item-text-wrap" href="#/carddetail/{{card.id}}">
+        <img src="img/doubletuan.png"/>
         <h2>{{card.name}}</h2>
-        <p>{{card.deadline}}截至</p>
-
-        <i class="icon ion-chevron-right icon-accessory"></i>
-
-        <ion-option-button class="button-calm" ng-click="remove(card)">
-          收了
-        </ion-option-button>
+        <p>截至{{card.deadline}}</p>
+        <i class="icon ion-chevron-right icon-accessory" style="color: red;"></i>
       </ion-item>
     </ion-list>
   </ion-content>

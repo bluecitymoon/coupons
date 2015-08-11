@@ -20,7 +20,9 @@
 
 .color-white-background {
     background-color: #ffffff;
+    border-radius: 5px;
 }
+
 .color-blue-background {
     background-color: #14b5e1
 }
@@ -29,4 +31,12 @@
 }
 .color-black-background {
     background-color: #333333
+}
+
+.title-margin {
+    margin-top: 10px;
+}
+
+.title-color {
+    color: #e42012;
 }

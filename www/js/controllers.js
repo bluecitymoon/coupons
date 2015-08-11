@@ -1,6 +1,10 @@
 angular.module('starter.controllers', [])
 
-    .controller('UserCardsCtrl', function ($scope, Cards) {
+    .controller('UserCardsCtrl', function ($scope, Cards, $state, $stateParams) {
+
+        userid = $stateParams.userid;
+        tokenId = $stateParams.tokenid;
+
         $scope.allcards = [];
 
         Cards.loadMyCards($scope);
@@ -9,6 +13,10 @@ angular.module('starter.controllers', [])
 
             $scope.allcards = data.cards;
         });
+
+        $scope.showUserOwnedSingleCard = function(mycardId) {
+            $state.go('my-card-detail', {cardId: mycardId});
+        }
     })
 
     .controller('CardsCtrl', function ($scope, Cards) {
@@ -25,10 +33,9 @@ angular.module('starter.controllers', [])
         };
     })
 
-    .controller('CardDetailCtrl', function ($scope, $stateParams, Cards, $state) {
+    .controller('CardDetailCtrl', function ($scope, $stateParams, Cards, $state, $ionicPopup) {
 
         $scope.card = Cards.get($stateParams.cardId);
-        console.debug(JSON.stringify($scope.card));
 
         $scope.userGetCoupons = function(typeId) {
             Cards.userGetCoupons($scope, typeId);
@@ -37,15 +44,21 @@ angular.module('starter.controllers', [])
         $scope.$on('code-assigned', function(event, data) {
             var code = data.code;
 
-            alert('恭喜您已成功领取，编号为' + code);
+            var alertPopup = $ionicPopup.alert({
+                title: '提示信息',
+                template: '恭喜您已成功领取，编号为 <h3 style="white-space: nowrap; color: #e42012 ">' + code + '</h3>',
+                okText: '确定',
+                okType: 'button button-block button-assertive'
+            });
 
-            $state.go('tab.mycards');
+            alertPopup.then(function(res) {
+                $state.go('tab.mycards', {userid: userid, tokenid: tokenId});
+            });
 
         });
     })
+    .controller('MyCardDetailCtrl', function ($scope, $stateParams, Cards) {
 
-    .controller('AccountCtrl', function ($scope) {
-        $scope.settings = {
-            enableFriends: true
-        };
+        $scope.card = Cards.getMyCardById($stateParams.cardId);
+
     });
