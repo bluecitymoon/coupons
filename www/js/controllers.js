@@ -1,28 +1,51 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope) {})
+    .controller('UserCardsCtrl', function ($scope, Cards) {
+        $scope.allcards = [];
 
-.controller('ChatsCtrl', function($scope, Chats) {
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
+        Cards.loadMyCards($scope);
 
-  $scope.chats = Chats.all();
-  $scope.remove = function(chat) {
-    Chats.remove(chat);
-  };
-})
+        $scope.$on('my-cards-loaded', function(event, data) {
 
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
-})
+            $scope.allcards = data.cards;
+        });
+    })
 
-.controller('AccountCtrl', function($scope) {
-  $scope.settings = {
-    enableFriends: true
-  };
-});
+    .controller('CardsCtrl', function ($scope, Cards) {
+        $scope.cards = [];
+
+        Cards.loadAllValiableCards($scope);
+
+        $scope.$on('cards-loaded', function(event, data) {
+            $scope.cards = data.cards;
+        });
+
+        $scope.remove = function (chat) {
+            Cards.remove(chat);
+        };
+    })
+
+    .controller('CardDetailCtrl', function ($scope, $stateParams, Cards, $state) {
+
+        $scope.card = Cards.get($stateParams.cardId);
+        console.debug(JSON.stringify($scope.card));
+
+        $scope.userGetCoupons = function(typeId) {
+            Cards.userGetCoupons($scope, typeId);
+        }
+
+        $scope.$on('code-assigned', function(event, data) {
+            var code = data.code;
+
+            alert('恭喜您已成功领取，编号为' + code);
+
+            $state.go('tab.mycards');
+
+        });
+    })
+
+    .controller('AccountCtrl', function ($scope) {
+        $scope.settings = {
+            enableFriends: true
+        };
+    });

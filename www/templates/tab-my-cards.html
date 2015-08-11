@@ -1,0 +1,13 @@
+<ion-view view-title="卡券包">
+    <ion-content class="padding">
+        <div class="list card" ng-repeat="card in allcards">
+            <div class="item item-divider font-white" style="background-color: darkorange; text-align: center">{{card.name}}</div>
+            <div class="item item-body" style="background-color: green">
+                <img src="img/doubletuan.png" class="doubletuan-logo default-content-margin">
+                <div style="text-align: center; vertical-align: middle">
+                    <h2 class="font-white">{{card.code}}</h2>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

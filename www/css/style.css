@@ -1,1 +1,32 @@
 /* Empty. Add your own CSS if you like */
+.doubletuan-logo {
+    max-width: 40px;
+    max-height: 40px;
+    border-radius: 50%;
+    margin-left: 5px;
+}
+
+.default-content-margin {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.font-white{
+    color: #ffffff
+}
+
+.font-gray {
+    color: #efeeeb;
+}
+
+.color-white-background {
+    background-color: #ffffff;
+}
+.color-blue-background {
+    background-color: #14b5e1
+}
+.color-gray-background {
+    background-color: #efeeeb
+}
+.color-black-background {
+    background-color: #333333
+}
