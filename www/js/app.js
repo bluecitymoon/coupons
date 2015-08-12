@@ -1,10 +1,10 @@
-var userid = 7;
-var tokenId = '90816555e41c490989f9faf2bc568a6e';
+var userid = '';
+var tokenId = '';
 
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
-    .constant('apiBase', 'http://121.40.148.98:8990/api/')
-
+  //  .constant('apiBase', 'http://121.40.148.98:8990/api/')
+    .constant('apiBase', 'http://121.40.152.11:8081/')
     .run(function ($ionicPlatform) {
         $ionicPlatform.ready(function () {
 

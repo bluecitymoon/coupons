@@ -7,8 +7,6 @@ angular.module('starter.controllers', [])
 
         $scope.allcards = [];
 
-        Cards.loadMyCards($scope);
-
         $scope.$on('my-cards-loaded', function(event, data) {
 
             $scope.allcards = data.cards;
@@ -17,6 +15,10 @@ angular.module('starter.controllers', [])
         $scope.showUserOwnedSingleCard = function(mycardId) {
             $state.go('my-card-detail', {cardId: mycardId});
         }
+
+        $scope.$on('$ionicView.enter', function(e) {
+            Cards.loadMyCards($scope);
+        });
     })
 
     .controller('CardsCtrl', function ($scope, Cards) {
@@ -53,6 +55,7 @@ angular.module('starter.controllers', [])
 
             alertPopup.then(function(res) {
                 $state.go('tab.mycards', {userid: userid, tokenid: tokenId});
+                Cards.loadMyCards($scope);
             });
 
         });
