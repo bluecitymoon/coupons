@@ -3,8 +3,8 @@ var tokenId = '';
 
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
-  //  .constant('apiBase', 'http://121.40.148.98:8990/api/')
-    .constant('apiBase', 'http://121.40.152.11:8081/')
+    .constant('apiBase', 'http://121.40.148.98:8990/api/')
+    //.constant('apiBase', 'http://121.40.152.11:8081/')
     .run(function ($ionicPlatform) {
         $ionicPlatform.ready(function () {
 
@@ -19,7 +19,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         });
     })
 
-    .config(function ($stateProvider, $urlRouterProvider) {
+    .config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 
         $stateProvider
 
@@ -66,5 +66,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
             });
 
         $urlRouterProvider.otherwise('/tab/mycards/' + userid + '/' + tokenId);
+
+        $ionicConfigProvider.tabs.position('bottom');
 
     });

@@ -1,13 +1,9 @@
 <ion-view view-title="卡券包">
     <ion-content class="padding">
         <div class="list card" ng-repeat="card in allcards">
-            <div class="item item-divider font-white" style="background-color: green; text-align: center">
-                {{card.name}}
-            </div>
-            <div class="item item-body" style="background-color: red" ng-click="showUserOwnedSingleCard(card.id)">
-                <div style="text-align: center; vertical-align: middle">
-                    <h1 class="font-white">{{card.code}}</h1>
-                </div>
+            <div class="item" ng-click="showUserOwnedSingleCard(card.id)" style="background-image: url(img/card/bg_01.png)">
+                <h2 style="text-align: center; word-wrap: normal">{{card.name}}</h2>
+                <h3 style="text-align: center; vertical-align: middle">{{card.code}}</h3>
             </div>
         </div>
     </ion-content>

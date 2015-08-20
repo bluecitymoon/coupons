@@ -7,10 +7,11 @@
 }
 
 .default-content-margin {
-    margin-left: 5px;
+    margin-left: 25px;
     margin-right: 5px;
 }
-.font-white{
+
+.font-white {
     color: #ffffff
 }
 
@@ -26,17 +27,69 @@
 .color-blue-background {
     background-color: #14b5e1
 }
+
 .color-gray-background {
     background-color: #efeeeb
 }
+
 .color-black-background {
     background-color: #333333
 }
 
 .title-margin {
     margin-top: 10px;
+    text-align: center;
+    width: 30%;
 }
 
 .title-color {
-    color: #e42012;
+    color: #3b0110;
+    margin-top: 10px;
+}
+
+.card-background {
+    background-image: url(../img/card/bg_01.png);
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    background-size: 100%;
+}
+
+.card-title-margin {
+    margin-top: -136px;
+    font-color: #ffac00;
+}
+
+.text-center-title-big-size {
+    width: 100%;
+    font-size: 18px;
+    text-align: center;
+    white-space: nowrap;
+    font-color: #ffac00;
+}
+
+.text-center-title-medium-size {
+    width: 100%;
+    font-size: 15px;
+    text-align: center;
+    white-space: nowrap;
+    font-color: #ffac00;
+}
+
+.text-center-title-small-size {
+    width: 100%;
+    font-size: 12px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.detailed-title {
+    background-image: url(../img/card/bg_05.png);
+    background-repeat: no-repeat;
+    background-position: left;
+    margin-left: -5px;
+}
+
+.details-background {
+    background-color: #f7f7f7;
+    opacity: 0.6;
 }
