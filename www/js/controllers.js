@@ -1,9 +1,17 @@
 angular.module('starter.controllers', [])
 
-    .controller('UserCardsCtrl', function ($scope, Cards, $state, $stateParams) {
+    .controller('UserCardsCtrl', function ($scope, Cards, $state, $stateParams, StorageService) {
 
         userid = $stateParams.userid;
         tokenId = $stateParams.tokenid;
+
+        if(userid) {
+            StorageService.set('userid', userid);
+        }
+
+        if(tokenId) {
+            StorageService.set('tokenId', tokenId);
+        }
 
         $scope.allcards = [];
 
@@ -14,14 +22,14 @@ angular.module('starter.controllers', [])
 
         $scope.showUserOwnedSingleCard = function(mycardId) {
             $state.go('my-card-detail', {cardId: mycardId});
-        }
+        };
 
         $scope.$on('$ionicView.enter', function(e) {
             Cards.loadMyCards($scope);
         });
     })
 
-    .controller('CardsCtrl', function ($scope, Cards) {
+    .controller('CardsCtrl', function ($scope, Cards, $state, $window, $ionicPopup) {
         $scope.cards = [];
 
         Cards.loadAllValiableCards($scope);
@@ -33,6 +41,43 @@ angular.module('starter.controllers', [])
         $scope.remove = function (chat) {
             Cards.remove(chat);
         };
+
+        $scope.pickupCouponsOrGotoLink = function(mycardId) {
+
+            var card = Cards.get(mycardId);
+
+            switch (card.code) {
+                case 1:
+
+                    $state.go('card-detail', {cardId: mycardId});
+                    break;
+
+                case 2:
+
+                    var url = card.url;
+                    var alertPopup = $ionicPopup.alert({
+                        title: card.name,
+                        template: card.remark,
+                        cancelText: '取消',
+                        cancelType: 'button button-block button-balanced',
+                        okText: '确定',
+                        okType: 'button button-block button-positive'
+
+                    });
+                    alertPopup.then(function() {
+
+                        if(url) {
+                            $window.location.href = url;
+                        }
+                    });
+
+                    break;
+                default :
+                    break;
+            }
+
+        };
+
     })
 
     .controller('CardDetailCtrl', function ($scope, $stateParams, Cards, $state, $ionicPopup) {
@@ -60,6 +105,7 @@ angular.module('starter.controllers', [])
 
         });
     })
+
     .controller('MyCardDetailCtrl', function ($scope, $stateParams, Cards) {
 
         $scope.card = Cards.getMyCardById($stateParams.cardId);

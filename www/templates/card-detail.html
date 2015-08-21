@@ -4,55 +4,57 @@
   The FriendsCtrl pulls data from the Friends service (service.js)
   The Friends service returns an array of friend data
 -->
-<ion-view view-title="优惠券明细" class="color-gray-background">
-    <ion-content>
-        <div style="background-color: #e42012; border-radius: 5px">
-            <div class="row">
-                <img src="img/doubletuan.png" class="doubletuan-logo default-content-margin">
+<ion-view view-title="优惠券明细">
+    <ion-content class="padding background-whole">
+        <div class="title-background">
 
-                <p class="font-white" style="margin-left: 5px">{{card.sponsor}}</p>
+            <div class="row">
+                <b class="text-center-title-big-size">{{card.sponsor}}</b>
             </div>
             <div class="row">
-                <h3 style="white-space: nowrap;" class="font-white">{{card.name}}</h3>
+                <p class="text-center-title-medium-size">{{card.name}}</p>
             </div>
-            <div class="row font-gray default-content-margin" style="text-align: center">
-                有效期至：{{card.deadline}}
-            </div>
-        </div>
-        <div class="title-margin title-color">
 
-            <b class="default-content-margin" style="margin-bottom: 0px;">优惠区域</b> <i class="ion-android-pin"></i>
+            <div class="row">
+                <p class="text-center-title-small-size" style="font-size: 15px">有效期至：{{card.deadline}}</p>
+            </div>
+
         </div>
 
-        <div class="color-white-background" style="border-radius: 10px">
+        <div class="details-background padding">
+            <div class="title-margin title-color detailed-title">
+                <b class="default-content-margin">优惠区域</b>
+            </div>
+
             <div class="default-content-margin">{{card.region}}</div>
-        </div>
-        <div class="title-margin title-color">
-            <b class="default-content-margin" style="margin-bottom: 0px;">使用规则</b> <i class="ion-alert-circled"></i>
-        </div>
-        <div class="color-white-background">
-            <div class="default-content-margin">{{card.rule}}</div>
-        </div>
+            <div class="title-margin title-color detailed-title">
+                <b class="default-content-margin" style="margin-bottom: 0px;">使用规则</b>
+            </div>
+            <div>
+                <div class="default-content-margin">{{card.rule}}</div>
+            </div>
 
-        <div class="title-margin title-color">
-            <b class="default-content-margin" style="margin-bottom: 0px;">查询订单</b><i class="ion-search"></i>
-        </div>
-        <div class="color-white-background">
-            <div class="default-content-margin">{{card.queryMethod}}</div>
-        </div>
+            <div class="title-margin title-color detailed-title">
+                <b class="default-content-margin" style="margin-bottom: 0px;">查询订单</b>
+            </div>
+            <div>
+                <div class="default-content-margin">{{card.queryMethod}}</div>
+            </div>
 
-        <div class="title-margin title-color">
-            <b class="default-content-margin" style="margin-bottom: 0px;">客服电话</b><i class="ion-ios-telephone"></i>
+            <div class="title-margin title-color detailed-title">
+                <b class="default-content-margin" style="margin-bottom: 0px;">客服电话</b>
+            </div>
+            <div>
+                <div class="default-content-margin">{{card.servicePhone}}</div>
+            </div>
+            <br>
+            <div class="row">
+                <button class="button button-block button-assertive" ng-click="userGetCoupons(card.id)">
+                    立即领取
+                </button>
+            </div>
         </div>
-        <div class="color-white-background">
-            <div class="default-content-margin">{{card.servicePhone}}</div>
-        </div>
-
-        <div class="row">
-            <button class="button button-block button-assertive" ng-click="userGetCoupons(card.id)">
-                领取
-            </button>
-        </div>
+        <br>
 
     </ion-content>
 

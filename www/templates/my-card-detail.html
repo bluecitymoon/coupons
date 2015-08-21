@@ -1,24 +1,24 @@
-<ion-view view-title="优惠券明细" class="color-gray-background">
-    <ion-content style="background-image: url(img/card/bg_03.png); background-position: center center" class="padding">
-        <div>
-            <img src="img/card/bg_04.png" width="100%">
+<ion-view view-title="优惠券明细">
+    <ion-content class="padding background-whole ">
+        <div class="title-background">
 
-            <div class="row card-title-margin">
-                <p class="text-center-title-big-size">{{card.sponsor}}</p>
+            <div class="row">
+                <b class="text-center-title-big-size">{{card.sponsor}}</b>
             </div>
-            <div class="row" style="margin-top: -10px; font-size: 20px">
+            <div class="row">
                 <p class="text-center-title-medium-size">{{card.name}}</p>
-            </div>
-            <div class="row font-gray" style="text-align: center">
-                有效期至：{{card.deadline}} 领取日期：{{card.receivedTime}}
             </div>
 
             <div class="row">
-                <h1 style="white-space: nowrap; text-align: center; margin-top: 20px;">{{card.code}}</h1>
+                <p class="text-center-title-small-size">有效期至：{{card.deadline}}  领取日期：{{card.receivedTime}}</p>
+            </div>
+
+            <div class="row code-background">
+                <p class="font-white code-title">优惠码：</p><p class="code-value-background">{{card.code}}</p>
             </div>
         </div>
 
-        <div class="details-background">
+        <div class="details-background padding">
             <div class="title-margin title-color detailed-title">
                 <b class="default-content-margin">优惠区域</b>
             </div>

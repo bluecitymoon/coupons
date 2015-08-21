@@ -1,6 +1,6 @@
 angular.module('starter.services', [])
 
-    .factory('Cards', function ($http, apiBase) {
+    .factory('Cards', function ($http, apiBase, StorageService) {
         var cards = [];
         var mycards = [];
 
@@ -13,14 +13,15 @@ angular.module('starter.services', [])
 
                 $http({
                     url: apiBase + 'ihome/coupontype/coupontypes',
-                    params: {residentId: userid, pageNo: 1, tokenId: tokenId}
+                    params: {residentId: StorageService.get('userid'), pageNo: 1, tokenId: StorageService.get('tokenId')}
                 }).success(function (response, status, headers, config) {
 
                     cards = response.data.coupontypes;
+                    console.debug(cards);
+
                     $scope.$emit('cards-loaded', {cards: cards});
 
                 }).error(function (response, status, headers, config) {
-                    alert('获取优惠券失败');
 
                 });
             },
@@ -30,7 +31,7 @@ angular.module('starter.services', [])
                 $http({
                     method: 'POST',
                     url: apiBase + 'ihome/coupontype/coupon',
-                    params: {residentId: userid, tokenId: tokenId, typeId: typeId}
+                    params: {residentId: StorageService.get('userid'), tokenId: StorageService.get('tokenId'), typeId: typeId}
 
                 }).success(function (response, status, headers, config) {
 
@@ -38,7 +39,7 @@ angular.module('starter.services', [])
                     $scope.$emit('code-assigned', {code: code});
 
                 }).error(function (response, status, headers, config) {
-                    alert('获取优惠券失败');
+
                 });
 
             },
@@ -47,7 +48,7 @@ angular.module('starter.services', [])
 
                 $http({
                     url: apiBase + 'ihome/coupontype/coupons',
-                    params: {residentId: userid, tokenId: tokenId, pageNo: 1}
+                    params: {residentId: StorageService.get('userid'), tokenId: StorageService.get('tokenId'), pageNo: 1}
 
                 }).success(function (response, status, headers, config) {
 
@@ -55,7 +56,7 @@ angular.module('starter.services', [])
                     $scope.$emit('my-cards-loaded', {cards: mycards});
 
                 }).error(function (response, status, headers, config) {
-                    alert('获取我的优惠券失败');
+
                 });
             },
 
@@ -75,6 +76,27 @@ angular.module('starter.services', [])
                     }
                 }
                 return null;
+            }
+        };
+    })
+
+    .factory('StorageService', function ($window) {
+
+        return {
+            get: function (key) {
+                return $window.localStorage[key];
+            },
+            set: function (key, value) {
+                $window.localStorage[key] = value;
+            },
+            setObject: function(key, value) {
+                $window.localStorage[key] = JSON.stringify(value);
+            },
+            getObject: function(key) {
+                return JSON.parse($window.localStorage[key] || '{}');
+            },
+            getArray: function(key) {
+                return JSON.parse($window.localStorage[key] || '[]');
             }
         };
     });
