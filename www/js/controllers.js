@@ -5,26 +5,26 @@ angular.module('starter.controllers', [])
         userid = $stateParams.userid;
         tokenId = $stateParams.tokenid;
 
-        if(userid) {
+        if (userid) {
             StorageService.set('userid', userid);
         }
 
-        if(tokenId) {
+        if (tokenId) {
             StorageService.set('tokenId', tokenId);
         }
 
         $scope.allcards = [];
 
-        $scope.$on('my-cards-loaded', function(event, data) {
+        $scope.$on('my-cards-loaded', function (event, data) {
 
             $scope.allcards = data.cards;
         });
 
-        $scope.showUserOwnedSingleCard = function(mycardId) {
+        $scope.showUserOwnedSingleCard = function (mycardId) {
             $state.go('my-card-detail', {cardId: mycardId});
         };
 
-        $scope.$on('$ionicView.enter', function(e) {
+        $scope.$on('$ionicView.enter', function (e) {
             Cards.loadMyCards($scope);
         });
     })
@@ -34,7 +34,7 @@ angular.module('starter.controllers', [])
 
         Cards.loadAllValiableCards($scope);
 
-        $scope.$on('cards-loaded', function(event, data) {
+        $scope.$on('cards-loaded', function (event, data) {
             $scope.cards = data.cards;
         });
 
@@ -42,54 +42,63 @@ angular.module('starter.controllers', [])
             Cards.remove(chat);
         };
 
-        $scope.pickupCouponsOrGotoLink = function(mycardId) {
+        $scope.pickupCouponsOrGotoLink = function (mycardId) {
 
             var card = Cards.get(mycardId);
-
-            switch (card.code) {
-                case 1:
-
-                    $state.go('card-detail', {cardId: mycardId});
-                    break;
-
-                case 2:
-
-                    var url = card.url;
-                    var alertPopup = $ionicPopup.alert({
-                        title: card.name,
-                        template: card.remark,
-                        cancelText: '取消',
-                        cancelType: 'button button-block button-balanced',
-                        okText: '确定',
-                        okType: 'button button-block button-positive'
-
-                    });
-                    alertPopup.then(function() {
-
-                        if(url) {
-                            $window.location.href = url;
-                        }
-                    });
-
-                    break;
-                default :
-                    break;
-            }
+            $state.go('card-detail', {cardId: mycardId});
+            //switch (card.code) {
+            //    case 1:
+            //
+            //        $state.go('card-detail', {cardId: mycardId});
+            //        break;
+            //
+            //    case 2:
+            //
+            //        var url = card.url;
+            //        var alertPopup = $ionicPopup.alert({
+            //            title: card.name,
+            //            template: card.remark,
+            //            cancelText: '取消',
+            //            cancelType: 'button button-block button-balanced',
+            //            okText: '确定',
+            //            okType: 'button button-block button-positive'
+            //
+            //        });
+            //        alertPopup.then(function() {
+            //
+            //            if(url) {
+            //                $window.location.href = url;
+            //            }
+            //        });
+            //
+            //        break;
+            //    default :
+            //        break;
+            //}
 
         };
 
     })
 
-    .controller('CardDetailCtrl', function ($scope, $stateParams, Cards, $state, $ionicPopup) {
+    .controller('CardDetailCtrl', function ($scope, $stateParams, Cards, $state, $ionicPopup, $window) {
 
         $scope.card = Cards.get($stateParams.cardId);
 
-        $scope.userGetCoupons = function(typeId) {
-            Cards.userGetCoupons($scope, typeId);
+        $scope.userGetCoupons = function (typeId) {
+
+            var code = $scope.card.code;
+
+            if (code && code === 2) {
+                $window.location.href = $scope.card.url;
+            } else {
+                Cards.userGetCoupons($scope, typeId);
+            }
+
         }
 
-        $scope.$on('code-assigned', function(event, data) {
+        $scope.$on('code-assigned', function (event, data) {
             var code = data.code;
+
 
             var alertPopup = $ionicPopup.alert({
                 title: '提示信息',
@@ -98,7 +107,7 @@ angular.module('starter.controllers', [])
                 okType: 'button button-block button-assertive'
             });
 
-            alertPopup.then(function(res) {
+            alertPopup.then(function (res) {
                 $state.go('tab.mycards', {userid: userid, tokenid: tokenId});
                 Cards.loadMyCards($scope);
             });
