@@ -1,0 +1,61 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+<ion-view view-title="优惠券明细">
+    <ion-content class="padding background-whole">
+        <div class="title-background">
+
+            <div class="row">
+                <b class="text-center-title-big-size">{{card.sponsor}}</b>
+            </div>
+            <div class="row">
+                <p class="text-center-title-medium-size">{{card.name}}</p>
+            </div>
+
+            <div class="row">
+                <p class="text-center-title-small-size" style="font-size: 15px">有效期至：{{card.deadline}}</p>
+            </div>
+
+        </div>
+
+        <div class="details-background padding">
+            <div class="title-margin title-color detailed-title">
+                <b class="default-content-margin">优惠区域</b>
+            </div>
+
+            <div class="default-content-margin">{{card.region}}</div>
+            <div class="title-margin title-color detailed-title">
+                <b class="default-content-margin" style="margin-bottom: 0px;">使用规则</b>
+            </div>
+            <div>
+                <div class="default-content-margin">{{card.rule}}</div>
+            </div>
+
+            <div class="title-margin title-color detailed-title">
+                <b class="default-content-margin" style="margin-bottom: 0px;">查询订单</b>
+            </div>
+            <div>
+                <div class="default-content-margin">{{card.queryMethod}}</div>
+            </div>
+
+            <div class="title-margin title-color detailed-title">
+                <b class="default-content-margin" style="margin-bottom: 0px;">客服电话</b>
+            </div>
+            <div>
+                <div class="default-content-margin">{{card.servicePhone}}</div>
+            </div>
+            <br>
+            <div class="row">
+                <button class="button button-block button-assertive" ng-click="userGetCoupons(card.id)">
+                    立即领取
+                </button>
+            </div>
+        </div>
+        <br>
+
+    </ion-content>
+
+</ion-view>

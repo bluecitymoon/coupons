@@ -3,8 +3,8 @@ var tokenId = '';
 
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
-    .constant('apiBase', 'http://121.40.148.98:8990/api/')
-    //.constant('apiBase', 'http://121.40.152.11:8081/')
+    //.constant('apiBase', 'http://121.40.148.98:8990/api/')
+    .constant('apiBase', 'http://121.40.152.11:8081/')
     .run(function ($ionicPlatform) {
         $ionicPlatform.ready(function () {
 
