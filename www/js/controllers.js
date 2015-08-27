@@ -27,6 +27,7 @@ angular.module('starter.controllers', [])
         $scope.$on('$ionicView.enter', function (e) {
             Cards.loadMyCards($scope);
         });
+
     })
 
     .controller('CardsCtrl', function ($scope, Cards, $state, $window, $ionicPopup) {
@@ -94,7 +95,8 @@ angular.module('starter.controllers', [])
                 Cards.userGetCoupons($scope, typeId);
             }
 
-        }
+        };
+
 
         $scope.$on('code-assigned', function (event, data) {
             var code = data.code;
@@ -115,8 +117,17 @@ angular.module('starter.controllers', [])
         });
     })
 
-    .controller('MyCardDetailCtrl', function ($scope, $stateParams, Cards) {
+    .controller('MyCardDetailCtrl', function ($scope, $stateParams, Cards, $window) {
 
         $scope.card = Cards.getMyCardById($stateParams.cardId);
+
+        $scope.useCoupons = function() {
+
+            var url = $scope.card.url;
+
+            if(url) {
+                $window.location.href = url;
+            }
+        };
 
     });

@@ -1,5 +1,5 @@
 <ion-view view-title="优惠券明细">
-    <ion-content class="padding background-whole ">
+    <ion-content class="padding background-whole " overflow-scroll="true">
         <div class="title-background">
 
             <div class="row">
@@ -12,9 +12,18 @@
             <div class="row">
                 <p class="text-center-title-small-size">有效期至：{{card.deadline}}  领取日期：{{card.receivedTime}}</p>
             </div>
+            <div class="row code-background item-input">
 
-            <div class="row code-background">
-                <p class="font-white code-title">优惠码：</p><p class="code-value-background">{{card.code}}</p>
+                <div class="col-50">
+                    <p class="font-white code-title">优惠码：</p>
+                </div>
+                <div class="col-30">
+                    <input type="text" ng-model="card.code">
+                </div>
+                <div class="col-20">
+                    <button class="button button-positive" style="border-radius: 50%; margin-top: 10px" ng-click="useCoupons()">使用</button>
+                </div>
+
             </div>
         </div>
 
