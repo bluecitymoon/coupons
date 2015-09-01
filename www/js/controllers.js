@@ -30,18 +30,28 @@ angular.module('starter.controllers', [])
 
     })
 
-    .controller('CardsCtrl', function ($scope, Cards, $state, $window, $ionicPopup) {
+    .controller('CardsCtrl', function ($scope, Cards, $state, $window, $ionicPopup, $stateParams, StorageService) {
+
+        userid = $stateParams.userid;
+        tokenId = $stateParams.tokenid;
+
+        if (userid) {
+            StorageService.set('userid', userid);
+        }
+
+        if (tokenId) {
+            StorageService.set('tokenId', tokenId);
+        }
+
         $scope.cards = [];
 
-        Cards.loadAllValiableCards($scope);
+        $scope.$on('$ionicView.enter', function (e) {
+            Cards.loadAllValiableCards($scope);
+        });
 
         $scope.$on('cards-loaded', function (event, data) {
             $scope.cards = data.cards;
         });
-
-        $scope.remove = function (chat) {
-            Cards.remove(chat);
-        };
 
         $scope.userGetCoupons = function (typeId) {
 
