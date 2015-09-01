@@ -8,19 +8,13 @@
 }
 
 .default-content-margin {
-    margin-left: 25px;
-    margin-right: 5px;
+    margin-left: 5px;
     margin-top: 5px;
+    font-size: 16px;
 }
 
 .font-white {
     color: #ffffff
-}
-
-.font-expiration-date {
-    color: #999999;
-    font-size: 10px;
-    margin-top: 10px;
 }
 
 .color-white-background {
@@ -47,8 +41,7 @@
 }
 
 .title-color {
-    color: #3b0110;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 .card-background {
@@ -69,13 +62,9 @@
 
 .title-background {
     margin-top: 10px;
-    background-color: #f7f7f7;
-    border-radius: 5px;
-    box-sizing: border-box;
-    transition: border .7s ease;
-    box-shadow:
-    0 0 10px #000,
-    0 0 0 5px #fff;
+    width: 100%;
+    background-image: url(../img/bg_01.png);
+    background-size: cover;
 }
 
 .text-center-title-big-size {
@@ -102,28 +91,18 @@
     text-align: center;
     white-space: nowrap;
     text-overflow: clip;
-    color: #999999;
     margin-top: -3px;
-    font-size: 9px;
-
 }
 
 .detailed-title {
-    background-image: url(../img/card/bg_05.png);
+    background-image: url(../img/ic_01.png);
     background-repeat: no-repeat;
     background-position: left;
-    margin-left: -17px;
 }
 
 .details-background {
-    background-color: #f7f7f7;
-    margin-top: 20px;
-    border-radius: 10px;
-    box-sizing: border-box;
-    transition: border .7s ease;
-    box-shadow:
-    0 0 10px #000,
-    0 0 0 5px #fff;
+    background-color: #ffffff;
+    margin-top: 0px;
 }
 
 .code-background {
@@ -159,5 +138,155 @@
     margin-top: 10px;
     max-height: 30px;
     min-height: 30px;
-    
+
+}
+
+/*家政宝*/
+.mycard-style-2 {
+    background-image: url(../img/bg_mine_bg01.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/*生活宝*/
+.mycard-style-1 {
+    background-image: url(../img/bg_mine_bg02.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/*商旅宝*/
+.mycard-style-3 {
+    background-image: url(../img/bg_mine_bg03.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/*爱车宝*/
+.mycard-style-4 {
+    background-image: url(../img/bg_mine_bg04.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/*生活缴费*/
+.mycard-style-5 {
+    background-image: url(../img/bg_mine_bg05.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/*生活秘籍*/
+.mycard-style-6 {
+    background-image: url(../img/bg_mine_bg06.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/*家政宝*/
+.getcard-style-1 {
+    background-image: url(../img/bg_receive_bg01.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/*生活宝*/
+.getcard-style-2 {
+    background-image: url(../img/bg_receive_bg02.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/*商旅宝*/
+.getcard-style-3 {
+    background-image: url(../img/bg_receive_bg03.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/*爱车宝*/
+.getcard-style-4 {
+    background-image: url(../img/bg_receive_bg04.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/*生活缴费*/
+.getcard-style-5 {
+    background-image: url(../img/bg_receive_bg05.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/*生活秘籍*/
+.getcard-style-6 {
+    background-image: url(../img/bg_receive_bg06.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.coupons-title {
+    text-align: center;
+    color: white;
+    word-wrap: break-word;
+    height: 70%;
+    font-size: 20px;
+    vertical-align: middle !important;
+    margin-top: 12px;
+}
+
+.font-expiration-date {
+    font-size: 15px;
+    color: white;
+    vertical-align: bottom !important;
+    height: 30%;
+}
+
+.arrow-detail-title {
+    width: 15px;
+    height: 12px;
+    margin-top: 10px;
+}
+
+.single-detail-font {
+    font-size: 15px
+}
+
+.submit-button {
+    background-color: #E64C65;
+    font-size: 23px;
+    border-radius: 5px;
+    color: white;
+    border-color: #E64C65
+}
+
+.price {
+    text-align: right;
+    vertical-align: middle;
+    font-size: 65px;
+    height: 100%;
+    margin-bottom: 15px;
+}
+
+.coupons-code {
+    font-size: 20px;
+}
+
+.code-input {
+    color: #E64C65 !important;
+    font-size: 15px !important;
+    text-align: center;
+    border-radius: 0px !important;
+    max-width: 120px;
+    height: 23px !important;
+}
+
+.get-coupon-link {
+    text-align: center;
+    text-decoration: none;
+    color: #24B0C9 !important;
+}
+
+.content-padding {
+    padding: 5px !important;
 }

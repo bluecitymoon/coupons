@@ -1,61 +1,67 @@
 <ion-view view-title="优惠券明细">
-    <ion-content class="padding background-whole " overflow-scroll="true">
-        <div class="title-background">
+    <ion-content class="padding" overflow-scroll="true" style="background-color: #F4F4F4">
+        <div class="title-background" style="color: white; margin-top: 10px">
+            <br>
+            <table style="margin: 0 auto;">
+                <tr>
+                    <td width="30%" class="price" rowspan="2">{{card.price}}</td>
+                    <td class="coupons-code" style="margin-top: 20px !important;">
+                        <div class="row">
+                            优惠码 &nbsp;<input type="text" class="code-input" ng-model="card.code">
+                        </div>
+                        {{card.name}}
+                    </td>
+                </tr>
 
+            </table>
             <div class="row">
-                <b class="text-center-title-big-size">{{card.sponsor}}</b>
-            </div>
-            <div class="row">
-                <p class="text-center-title-medium-size">{{card.name}}</p>
-            </div>
-
-            <div class="row">
-                <p class="text-center-title-small-size">有效期至：{{card.deadline}}  领取日期：{{card.receivedTime}}</p>
-            </div>
-            <div class="row code-background item-input">
-
-                <div class="col-50">
-                    <p class="font-white code-title">优惠码：</p>
-                </div>
-                <div class="col-30">
-                    <input type="text" ng-model="card.code">
-                </div>
-                <div class="col-20">
-                    <button class="button button-positive" style="border-radius: 50%; margin-top: 10px" ng-click="useCoupons()">使用</button>
-                </div>
-
+                <p class="text-center-title-small-size">有效期至：{{card.deadline}}</p>
             </div>
         </div>
-
+        <div style="margin-top: -2px">
+            <img src="img/bg_02.png" style="width: 100%;">
+        </div>
         <div class="details-background padding">
-            <div class="title-margin title-color detailed-title">
+            <div class="title-margin title-color row">
+                <img src="img/ic_01.png" class="arrow-detail-title">
                 <b class="default-content-margin">优惠区域</b>
             </div>
 
-            <div class="default-content-margin">{{card.region}}</div>
-            <div class="title-margin title-color detailed-title">
+            <div class="default-content-margin single-detail-font">{{card.region}}</div>
+
+            <div class="title-margin title-color row">
+                <img src="img/ic_01.png" class="arrow-detail-title">
                 <b class="default-content-margin" style="margin-bottom: 0px;">使用规则</b>
             </div>
-            <div >
-                <div class="default-content-margin">{{card.rule}}</div>
+            <div>
+                <div class="default-content-margin single-detail-font">{{card.rule}}</div>
             </div>
 
-            <div class="title-margin title-color detailed-title">
+            <div class="title-margin title-color row">
+                <img src="img/ic_01.png" class="arrow-detail-title">
                 <b class="default-content-margin" style="margin-bottom: 0px;">查询订单</b>
             </div>
-            <div >
-                <div class="default-content-margin">{{card.queryMethod}}</div>
+            <div>
+                <div class="default-content-margin single-detail-font">{{card.queryMethod}}</div>
             </div>
 
-            <div class="title-margin title-color detailed-title">
+            <div class="title-margin title-color row">
+                <img src="img/ic_01.png" class="arrow-detail-title">
                 <b class="default-content-margin" style="margin-bottom: 0px;">客服电话</b>
             </div>
-            <div >
-                <div class="default-content-margin">{{card.servicePhone}}</div>
+            <div>
+                <div class="default-content-margin single-detail-font">{{card.servicePhone}}</div>
             </div>
         </div>
-        <br>
+        <div style="margin-top: -10px">
+            <img src="img/bg_03.png" style="width: 100%;">
+        </div>
 
+        <div class="row">
+            <button clip-copy="getCode()" clip-click-fallback="fallback(copy)" clip-click="printClipboard()" auto-hide-on-no-flash = true class="button button-block submit-button">
+                立即使用
+            </button>
+        </div>
     </ion-content>
 
 </ion-view>

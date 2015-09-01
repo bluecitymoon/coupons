@@ -1,9 +1,14 @@
 <ion-view view-title="卡券包">
+
     <ion-content class="padding">
         <div class="list card" ng-repeat="card in allcards">
-            <div class="item singlecard-background" ng-click="showUserOwnedSingleCard(card.id)">
-                <h2 style="text-align: center; word-wrap: normal">{{card.name}}</h2>
-                <p class="font-expiration-date" style="text-align: center;">有效期至{{card.deadline}}</p>
+            <div class="item {{card.css}} content-padding" ng-click="showUserOwnedSingleCard(card.id)">
+
+                <div class="coupons-title" style="margin-left: 25%">{{card.name}}</div>
+                <br>
+                <div class="font-expiration-date" style="text-align: center; margin-left: 25%">有效期至{{card.deadline}}
+                </div>
+
             </div>
         </div>
     </ion-content>
