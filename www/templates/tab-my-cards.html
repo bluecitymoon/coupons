@@ -6,10 +6,30 @@
 
                 <div class="coupons-title" style="margin-left: 25%">{{card.name}}</div>
                 <br>
+
                 <div class="font-expiration-date" style="text-align: center; margin-left: 25%">有效期至{{card.deadline}}
                 </div>
 
             </div>
         </div>
+
+        <div class="list" ng-if="!allcards || allcards.length == 0" style="vertical-align: middle !important;">
+           <br><br><br><br><br><br><br><br><br>
+            <div class="row">
+                <div class="col col-25"></div>
+                <div class="col col-50 nothing">
+
+                </div>
+                <div class="col col-25"></div>
+            </div>
+            <div class="row" style="margin-top: 1rem;">
+                <div class="col col-25"></div>
+                <div class="col col-50" style="text-align: center; color: #D8D8D8; font-size: 1.2rem">
+                    空空如也
+                </div>
+                <div class="col col-25"></div>
+            </div>
+        </div>
+
     </ion-content>
 </ion-view>

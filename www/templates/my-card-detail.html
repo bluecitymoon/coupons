@@ -4,9 +4,9 @@
             <br>
             <table style="margin: 0 auto;">
                 <tr>
-                    <td width="30%" class="price" rowspan="2">{{card.price}}</td>
+                    <td width="30%" class="price" rowspan="2" ng-if="card.price && card.price > 0">{{card.price}}</td>
                     <td class="coupons-code" style="margin-top: 20px !important;">
-                        <div class="row">
+                        <div class="row" ng-if="card.code">
                             优惠码 &nbsp;<input type="text" class="code-input" ng-model="card.code">
                         </div>
                         {{card.name}}
@@ -14,6 +14,7 @@
                 </tr>
 
             </table>
+            <br ng-if="!card.code">
             <div class="row">
                 <p class="text-center-title-small-size">有效期至：{{card.deadline}}</p>
             </div>

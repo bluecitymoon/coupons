@@ -30,12 +30,12 @@ angular.module('starter.services', [])
                             "ctype": 1,
                             "code": 1,
                             "sponsor": "家电管家",
-                            "isReceived": 1,
+                            "isReceived": 0,
                             "url": "",
                             "id": 1,
                             "price": 20,
                             "queryMethod": "进入家电管家微信服务号页面，点击“我的-我的订单”输入手机号，即可查询",
-                            "name": "家电管家40元家电清洗优惠券",
+                            "name": "家政保",
                             "rule": "关注家电管家微信服务号（tada822），提交家电清洗需求后确认下单，在订单确认页面输入“优惠码”即可享受40元上门专享优惠，活动期内下单有效。",
                             "servicePhone": "400-658-0211",
                             "deadline": "2015年08月31日"
@@ -50,7 +50,7 @@ angular.module('starter.services', [])
                             "id": 2,
                             "price": 30,
                             "queryMethod": "进入洗车服务页面，点击“我的-我的订单”输入手机号，即可查询",
-                            "name": "1分钱洗车",
+                            "name": "生活宝",
                             "rule": "首次洗车用户提交订单即可享受1分钱洗车",
                             "servicePhone": "400-6019-619",
                             "deadline": "2015年08月31日"
@@ -65,7 +65,7 @@ angular.module('starter.services', [])
                             "id": 3,
                             "price": 40,
                             "queryMethod": "",
-                            "name": "E代驾",
+                            "name": "商旅包",
                             "rule": "",
                             "servicePhone": "",
                             "deadline": null
@@ -80,7 +80,7 @@ angular.module('starter.services', [])
                             "id": 2,
                             "price": 30,
                             "queryMethod": "进入洗车服务页面，点击“我的-我的订单”输入手机号，即可查询",
-                            "name": "1分钱洗车",
+                            "name": "爱车宝",
                             "rule": "首次洗车用户提交订单即可享受1分钱洗车",
                             "servicePhone": "400-6019-619",
                             "deadline": "2015年08月31日"
@@ -95,7 +95,7 @@ angular.module('starter.services', [])
                             "id": 2,
                             "price": 30,
                             "queryMethod": "进入洗车服务页面，点击“我的-我的订单”输入手机号，即可查询",
-                            "name": "1分钱洗车",
+                            "name": "生活缴费",
                             "rule": "首次洗车用户提交订单即可享受1分钱洗车",
                             "servicePhone": "400-6019-619",
                             "deadline": "2015年08月31日"
@@ -110,22 +110,27 @@ angular.module('starter.services', [])
                             "id": 2,
                             "price": 30,
                             "queryMethod": "进入洗车服务页面，点击“我的-我的订单”输入手机号，即可查询",
-                            "name": "1分钱洗车",
+                            "name": "生活秘籍",
                             "rule": "首次洗车用户提交订单即可享受1分钱洗车",
                             "servicePhone": "400-6019-619",
                             "deadline": "2015年08月31日"
                         }];
 
                         cards = fakeDate;
+
+                        console.debug(JSON.stringify(cards));
                     }
 
+                    var result = [];
                     angular.forEach(cards, function(card) {
-                        card.css = 'getcard-style-' + card.ctype;
+
+                        if(card.isReceived === 0) {
+                            card.css = 'getcard-style-' + card.ctype;
+                            result.append(card);
+                        }
                     });
 
-                    console.debug(JSON.stringify(cards));
-
-                    $scope.$emit('cards-loaded', {cards: cards});
+                    $scope.$emit('cards-loaded', {cards: result});
 
                 }).error(function (response, status, headers, config) {
 
@@ -169,14 +174,14 @@ angular.module('starter.services', [])
                     var fakeData = [{
                         "region": "大家电清洗—北京（六环内）、上海（中环）、广州（荔湾区、白云区、海珠区、天河区、越秀区、黄埔区、番禺区）、深圳（南山区、龙华区、龙岗区、罗湖区、福田区、布吉、坂田、南湾、民治、横岗）",
                         "ctype": 1,
-                        "code": "z00385cenr",
+                        "code": "",
                         "sponsor": "家电管家",
                         "url": "",
                         "id": 1,
                         "receivedTime": "2015年08月26日",
                         "price": 20,
                         "queryMethod": "进入家电管家微信服务号页面，点击“我的-我的订单”输入手机号，即可查询",
-                        "name": "家电管家40元家电清洗优惠券",
+                        "name": "家政宝",
                         "rule": "关注家电管家微信服务号（tada822），提交家电清洗需求后确认下单，在订单确认页面输入“优惠码”即可享受40元上门专享优惠，活动期内下单有效。",
                         "servicePhone": "400-658-0211",
                         "deadline": "2015年08月31日"
@@ -191,7 +196,7 @@ angular.module('starter.services', [])
                             "receivedTime": "2015年08月26日",
                             "price": 20,
                             "queryMethod": "进入家电管家微信服务号页面，点击“我的-我的订单”输入手机号，即可查询",
-                            "name": "家电管家40元家电清洗优惠券",
+                            "name": "生活宝",
                             "rule": "关注家电管家微信服务号（tada822），提交家电清洗需求后确认下单，在订单确认页面输入“优惠码”即可享受40元上门专享优惠，活动期内下单有效。",
                             "servicePhone": "400-658-0211",
                             "deadline": "2015年08月31日"
@@ -205,7 +210,7 @@ angular.module('starter.services', [])
                             "receivedTime": "2015年08月26日",
                             "price": 20,
                             "queryMethod": "进入家电管家微信服务号页面，点击“我的-我的订单”输入手机号，即可查询",
-                            "name": "家电管家40元家电清洗优惠券",
+                            "name": "商旅宝",
                             "rule": "关注家电管家微信服务号（tada822），提交家电清洗需求后确认下单，在订单确认页面输入“优惠码”即可享受40元上门专享优惠，活动期内下单有效。",
                             "servicePhone": "400-658-0211",
                             "deadline": "2015年08月31日"
@@ -219,7 +224,7 @@ angular.module('starter.services', [])
                             "receivedTime": "2015年08月26日",
                             "price": 20,
                             "queryMethod": "进入家电管家微信服务号页面，点击“我的-我的订单”输入手机号，即可查询",
-                            "name": "家电管家40元家电清洗优惠券",
+                            "name": "爱车宝",
                             "rule": "关注家电管家微信服务号（tada822），提交家电清洗需求后确认下单，在订单确认页面输入“优惠码”即可享受40元上门专享优惠，活动期内下单有效。",
                             "servicePhone": "400-658-0211",
                             "deadline": "2015年08月31日"
@@ -233,7 +238,7 @@ angular.module('starter.services', [])
                             "receivedTime": "2015年08月26日",
                             "price": 20,
                             "queryMethod": "进入家电管家微信服务号页面，点击“我的-我的订单”输入手机号，即可查询",
-                            "name": "家电管家40元家电清洗优惠券",
+                            "name": "生活缴费",
                             "rule": "关注家电管家微信服务号（tada822），提交家电清洗需求后确认下单，在订单确认页面输入“优惠码”即可享受40元上门专享优惠，活动期内下单有效。",
                             "servicePhone": "400-658-0211",
                             "deadline": "2015年08月31日"
@@ -241,14 +246,14 @@ angular.module('starter.services', [])
                         {
                             "region": "大家电清洗—北京（六环内）、上海（中环）、广州（荔湾区、白云区、海珠区、天河区、越秀区、黄埔区、番禺区）、深圳（南山区、龙华区、龙岗区、罗湖区、福田区、布吉、坂田、南湾、民治、横岗）",
                             "ctype": 6,
-                            "code": "z00385cenr",
+                            "code": "",
                             "sponsor": "家电管家",
                             "url": "",
                             "id": 1,
                             "receivedTime": "2015年08月26日",
                             "price": 20,
                             "queryMethod": "进入家电管家微信服务号页面，点击“我的-我的订单”输入手机号，即可查询",
-                            "name": "家电管家40元家电清洗优惠券",
+                            "name": "生活秘籍",
                             "rule": "关注家电管家微信服务号（tada822），提交家电清洗需求后确认下单，在订单确认页面输入“优惠码”即可享受40元上门专享优惠，活动期内下单有效。",
                             "servicePhone": "400-658-0211",
                             "deadline": "2015年08月31日"

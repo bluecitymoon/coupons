@@ -1,10 +1,10 @@
 var userid = '';
 var tokenId = '';
-var mode = 'prod';
+var mode = 'product';
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ngClipboard'])
 
-  //  .constant('apiBase', 'http://121.40.148.98:8990/api/')
-    .constant('apiBase', 'http://121.40.152.11:8081/')
+   // .constant('apiBase', 'http://121.40.148.98:8990/api/')
+   .constant('apiBase', 'http://121.40.152.11:8081/')
     .run(function ($ionicPlatform) {
         $ionicPlatform.ready(function () {
 
@@ -30,7 +30,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
             })
 
             .state('tab.mycards', {
-                url: '/mycards',
+                url: '/mycards/:userid/:tokenid',
                 views: {
                     'tab-dash': {
                         templateUrl: 'templates/tab-my-cards.html',
@@ -40,7 +40,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
             })
 
             .state('tab.cards', {
-                url: '/cards/:userid/:tokenid',
+                url: '/cards',
                 views: {
                     'tab-chats': {
                         templateUrl: 'templates/tab-cards.html',
@@ -53,8 +53,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
                 url: '/carddetail/:cardId',
                 templateUrl: 'templates/card-detail.html',
                 controller: 'CardDetailCtrl'
-
-
             })
 
             .state('my-card-detail', {
@@ -65,7 +63,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 
             });
 
-        $urlRouterProvider.otherwise('/tab/cards/' + userid + '/' + tokenId);
+        $urlRouterProvider.otherwise('/tab/mycards/' + userid + '/' + tokenId);
 
         $ionicConfigProvider.tabs.position('bottom');
 
