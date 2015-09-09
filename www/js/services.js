@@ -126,7 +126,7 @@ angular.module('starter.services', [])
 
                         if(card.isReceived === 0) {
                             card.css = 'getcard-style-' + card.ctype;
-                            result.append(card);
+                            result.push(card);
                         }
                     });
 
