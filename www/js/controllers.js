@@ -5,6 +5,8 @@ angular.module('starter.controllers', [])
         userid = $stateParams.userid;
         tokenId = $stateParams.tokenid;
 
+        console.debug('userid ' + userid);
+        console.debug('tokenId ' + tokenId);
         if (userid) {
             StorageService.set('userid', userid);
         }

@@ -143,49 +143,49 @@
 
 /*家政宝*/
 .mycard-style-5 {
-    background-image: url(../img/bg_mine_bg01.png);
+    background-image: url(../img/bg_mine_img05.png);
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 /*生活宝*/
 .mycard-style-3 {
-    background-image: url(../img/bg_mine_bg02.png);
+    background-image: url(../img/bg_mine_img03.png);
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 /*商旅宝*/
 .mycard-style-1 {
-    background-image: url(../img/bg_mine_bg03.png);
+    background-image: url(../img/bg_mine_img01.png);
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 /*爱车宝*/
 .mycard-style-4 {
-    background-image: url(../img/bg_mine_bg04.png);
+    background-image: url(../img/bg_mine_img04.png);
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 /*生活缴费*/
 .mycard-style-2 {
-    background-image: url(../img/bg_mine_bg05.png);
+    background-image: url(../img/bg_mine_img02.png);
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 /*生活秘籍*/
 .mycard-style-6 {
-    background-image: url(../img/bg_mine_bg06.png);
+    background-image: url(../img/bg_mine_img06.png);
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 /*家政宝*/
 .getcard-style-4 {
-    background-image: url(../img/bg_receive_bg01.png);
+    background-image: url(../img/bg_receive_img04.png);
     background-size: cover;
     background-repeat: no-repeat;
     filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
@@ -195,7 +195,7 @@
 
 /*生活宝*/
 .getcard-style-3 {
-    background-image: url(../img/bg_receive_bg02.png);
+    background-image: url(../img/bg_receive_img03.png);
     background-repeat: no-repeat;
     filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
     -moz-background-size: 100% 100%;
@@ -204,7 +204,7 @@
 
 /*商旅宝*/
 .getcard-style-1 {
-    background-image: url(../img/bg_receive_bg03.png);
+    background-image: url(../img/bg_receive_img01.png);
     background-repeat: no-repeat;
     filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
     -moz-background-size: 100% 100%;
@@ -213,7 +213,7 @@
 
 /*爱车宝*/
 .getcard-style-5 {
-    background-image: url(../img/bg_receive_bg04.png);
+    background-image: url(../img/bg_receive_img05.png);
     background-repeat: no-repeat;
     filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
     -moz-background-size: 100% 100%;
@@ -222,7 +222,7 @@
 
 /*生活缴费*/
 .getcard-style-2 {
-    background-image: url(../img/bg_receive_bg05.png);
+    background-image: url(../img/bg_receive_img02.png);
     background-repeat: no-repeat;
     filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
     -moz-background-size: 100% 100%;
@@ -231,7 +231,7 @@
 
 /*生活秘籍*/
 .getcard-style-6 {
-    background-image: url(../img/bg_receive_bg06.png);
+    background-image: url(../img/bg_receive_img06.png);
     background-repeat: no-repeat;
     filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
     -moz-background-size: 100% 100%;

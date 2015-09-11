@@ -1,6 +1,6 @@
 var userid = '';
 var tokenId = '';
-var mode = 'product';
+var mode = 'production';
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ngClipboard'])
 
    // .constant('apiBase', 'http://121.40.148.98:8990/api/')
