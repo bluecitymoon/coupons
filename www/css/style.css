@@ -183,6 +183,24 @@
     background-repeat: no-repeat;
 }
 
+.mycard-style-7 {
+    background-image: url(../img/bg_mine_img07.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.mycard-style-8 {
+    background-image: url(../img/bg_mine_img08.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.mycard-style-9 {
+    background-image: url(../img/bg_mine_img09.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 /*家政宝*/
 .getcard-style-4 {
     background-image: url(../img/bg_receive_img04.png);
@@ -238,6 +256,29 @@
     background-size: 100% 100%;
 }
 
+.getcard-style-7 {
+    background-image: url(../img/bg_receive_img07.png);
+    background-repeat: no-repeat;
+    filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
+    -moz-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+
+.getcard-style-8 {
+    background-image: url(../img/bg_receive_img08.png);
+    background-repeat: no-repeat;
+    filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
+    -moz-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+
+.getcard-style-9 {
+    background-image: url(../img/bg_receive_img09.png);
+    background-repeat: no-repeat;
+    filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
+    -moz-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
 .coupons-title {
     text-align: center;
     color: white;
